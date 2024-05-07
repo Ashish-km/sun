@@ -1,27 +1,26 @@
-var h4all = document.querySelectorAll("#nav h4");
-gsap.to("#nav", {
+// Hide the website content initially
+document.getElementById('website-content').style.display = 'none';
 
-  duration: 0.5,
-  height: "110px",
-  scrollTrigger: {
-    trigger: "#nav",
-    scroller: "body",
-    // markers:true,
-    start: "top -10%",
-    end: "top -11%",
-    scrub: 1,
-  },
-});
+// Show the website content after a delay
+window.onload = function () {
+  setTimeout(function() {
+    document.querySelector('.loading-message').style.display = 'none';
+    document.getElementById('website-content').style.display = 'block';
+  }, 10000); // Delay for 2 seconds (adjust as needed)
+};
 
-const lines = document.querySelectorAll("#page1 > #firstCard > *");
+// GSAP animation for the loading section
+const lines = document.querySelectorAll("#loading > #firstCard > *");
 gsap.set(lines, { opacity: 0 });
 
 gsap.fromTo(lines, {
   opacity: 0,
   y: 20
-}, {
+}, 
+{
   opacity: 1,
   y: 0,
   duration: 1,
-  stagger: 0.5 // Stagger each line by 0.5 seconds
+  stagger: 0.5, // Stagger each line by 0.5 seconds
+  delay: 2 // Add a delay of 2 seconds before starting the animation
 });
