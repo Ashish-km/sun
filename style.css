@@ -1,3 +1,18 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrolling on the entire page */
+  height: 100%; /* Ensure body takes up full height of viewport */
+}
+
+#introPage {
+  position: relative;
+  width: 100%;
+  overflow: auto; /* Allow scrolling within the introPage content */
+}
+
+
 #nav {
   display: flex;
   padding: 15px 27px;
@@ -7,7 +22,7 @@
   align-items: center;
   color: white;
   position: absolute;
-  top: 0px;
+  top: 0;
   opacity: 1;
   width: 100%;
 }
@@ -33,97 +48,63 @@
   transform: rotate(180deg);
 }
 
-#page1 {
+#introPage {
   background: transparent url("img/Image\ 16.png") center/cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  z-index: 995;
+  height: 100vh; /* full viewport height */
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
-  
-}
-#page1 h1{
-  font: normal normal normal 63px/83px Candara;
-  text-align: center;
-letter-spacing: 0px;
-color: #707070;
-opacity: 0.75;
 }
 
-#loading {
-  background: transparent url("img/Image\ 16.png") center/cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  z-index: 995;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-
-}
-
-
-#page1 p{
-  font: normal normal normal 22px/26px Candara;
-  letter-spacing: 0px;
-  color: #707070;
-  opacity: 1;
-  padding: 12px 20px ;
-}
-
-.sound-icon{
-   display: flex;
-   justify-content: center;
-   align-items:center;
-   width: 67px;
-   height: 67px;
-   background: #707070 ;
-   border-radius: 5px;
-   margin: 20px
-   
-}
-
-
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-#firstCard h2{
-  text-align: center;
+#introPage h2 {
   font: normal normal normal 60px/72px Bebas Neue;
   letter-spacing: 0px;
   color: #707070;
-  opacity: 0.75;  
+  opacity: 0.75;
 }
-
-
-#firstCard p{
+#introPage p {
   font: normal normal normal 22px/26px Candara;
-letter-spacing: 0px;
-color: #707070;
-opacity: 1;
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 1;
+  padding: 12px 20px;
 }
 
+.sound-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 67px;
+  height: 67px;
+  background: #707070 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  display: inline-block;
+}
 
-#firstCard 
-{
-  display: flex ;
+#page1 {
+  background: transparent url("img/Image\ 16.png") center/cover no-repeat;
+  height: 100vh;
+  width: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
+ 
 }
 
+#secondCard{  
+  letter-spacing: -1px;
+}
+.moon{
+  position: absolute;  
+  opacity: 1; 
+  z-index: 1;
+}
 
-#secondCard {
-  opacity: 1;
-  font: normal normal normal 25%/30% Candara;
-  font-size: 20%;
+.z-index-9{
+ z-index: 9;
 }
