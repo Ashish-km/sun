@@ -1,0 +1,253 @@
+
+  <div id="introPage">
+    <div id="firstCard">
+      <h2 class="text-uppercase">Ready for a sensory feast?</h2>
+      <p class="text-white">Tune in, turn it up, and let your ears take over!</p>
+      <span class="sound-icon sound-icon-backgroung">
+        <i class="ri-volume-up-fill fs-1"></i>
+      </span>
+      <p id="subHead">Hit that play button and take your listening experience to the next level!</p>
+
+      <p class="position-absolute bottom-0 start-50 translate-middle-x">
+        Skip
+      </p>
+    </div>
+
+  </div>
+
+  <div id="page1">
+    <div id="nav" class="">
+      <img src="./img/NEWARCH.png" alt="" />
+      <div id="icon-head">
+        <i class="ri-bar-chart-horizontal-line"></i>
+      </div>
+    </div>
+    <div id="secondCard lh-base">
+      <!-- <p class="text-uppercase lh-base display-4 fw-bold">The beautiful<br>landscapes<br>that lay<br> underearth<br> both the<br> smooththing<br> moon and <br>scorching sun</p> -->
+      <h1 class="text-uppercase display-4 fw-bold z-index-9">The beautiful</h1>
+      <h1 class="text-uppercase display-4 fw-bold z-index-9">landscapes</h1>
+      <h1 class="text-uppercase display-4 fw-bold">that lay</h1>
+      <h1 class="text-uppercase display-4 fw-bold">underearth</h1>
+      <h1 class="text-uppercase display-4 fw-bold">both the</h1>
+      <h1 class="text-uppercase display-4 fw-bold">smooththing</h1>
+      <h1 class="text-uppercase display-4 fw-bold">moon and</h1>
+      <h1 class="text-uppercase display-4 fw-bold">scorching sun</h1>
+    </div>
+
+    <div class="moon" id="moon">
+      <img src="./img/moon.png" alt="" />
+    </div>
+
+  </div>
+
+  <div id="page3">
+
+    <div id="thirdCard">
+
+    </div>
+  </div>
+
+
+
+
+  </div>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Calculate introPage height
+    var introPage = document.getElementById("introPage");
+    var introPageHeight = introPage.scrollHeight; // Get the total height of the introPage content
+  
+    // Set introPage height to be fixed to its content height
+    introPage.style.height = introPageHeight + "px";
+  
+    // Define GSAP timelines for introPage and page1 animations
+    var introTimeline = gsap.timeline();
+    var page1Timeline = gsap.timeline({ paused: true });
+  
+    // Animation for introPage elements
+    introTimeline.from("#introPage #firstCard", {
+      opacity: 0,
+      duration: 0.5,
+      delay: 0.5
+    })
+    .from("#subHead", {
+      opacity: 0,
+      duration: 0.6,
+      scale: 0.1
+    });
+  
+    // Animation for page1 elements
+    page1Timeline.to("#introPage", {
+      opacity: 0,
+      duration: 0.5,
+      display: "none"
+    })
+    .from("#page1", {
+      opacity: 0,
+      duration: 0.5,
+      display: "block"
+    })
+    .from("#page1 #nav", {
+      y: -40,
+      opacity: 0,
+      duration: 1
+    })
+    .from("#page1 h1", {
+      y: -40,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.5
+    });
+  
+    // Skip button functionality
+    var skipButton = document.querySelector("#introPage .position-absolute");
+    skipButton.addEventListener("click", function (event) {
+      event.preventDefault();
+  
+      // Disable scroll during animation
+      document.body.style.overflow = "hidden";
+  
+      // Hide introPage elements
+      introTimeline.to("#introPage", {
+        opacity: 0,
+        duration: 0.5,
+        display: "none"
+      });
+  
+      // Show page1 elements with animations
+      page1Timeline.play();
+  
+      // Set body overflow to auto after animations complete
+      page1Timeline.eventCallback("onComplete", function () {
+        document.body.style.overflow = "auto";
+      });
+    });
+  
+    // Start scroll-triggered animation for nav bar (optional, if needed)
+    gsap.from("#page1 #nav", {
+      y: -40,
+      opacity: 0,
+      duration: 1,
+      delay: 1
+    });
+  
+    // Additional animation for h1 elements in page1 (optional, if needed)
+    gsap.from("#page1 h1", {
+      y: -40,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.5
+    });
+  
+  });
+  
+
+  html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrolling on the entire page */
+  height: 100%; /* Ensure body takes up full height of viewport */
+}
+
+#introPage {
+  position: relative;
+  width: 100%;
+  overflow: auto; /* Allow scrolling within the introPage content */
+}
+
+
+#nav {
+  display: flex;
+  padding: 15px 27px;
+  position: fixed;
+  justify-content: space-between;
+  z-index: 999;
+  align-items: center;
+  color: white;
+  position: absolute;
+  top: 0;
+  opacity: 1;
+  width: 100%;
+}
+#nav img {
+  height: 25px;
+  width: 116;
+}
+
+#icon-head {
+  width: 45px;
+  height: 45px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  opacity: 0.5; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ri-bar-chart-horizontal-line {
+  font-size: 24px;
+  color: black;
+  transform: rotate(180deg);
+}
+
+#introPage {
+  background: transparent url("img/Image\ 16.png") center/cover no-repeat;
+  height: 100vh; /* full viewport height */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#introPage h2 {
+  font: normal normal normal 60px/72px Bebas Neue;
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 0.75;
+}
+#introPage p {
+  font: normal normal normal 22px/26px Candara;
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 1;
+  padding: 12px 20px;
+}
+
+.sound-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 67px;
+  height: 67px;
+  background: #707070 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+#page1 {
+  background: transparent url("img/Image\ 16.png") center/cover no-repeat;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+ 
+}
+
+#secondCard{  
+  letter-spacing: -1px;
+}
+.moon{
+  position: absolute;  
+  opacity: 1; 
+  z-index: 1;
+}
+
+.z-index-9{
+ z-index: 9;
+}
