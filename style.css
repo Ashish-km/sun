@@ -1,15 +1,14 @@
-.section-1 .nav{
+.section-1 .nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-#sectionfirst{
-  
-    height: 100vh;
-    background-image: url('img/Image\ 16.png');
-    background-size: cover;
-    background-position: center;
-    
+#sectionfirst {
+  height: 100vh;
+  background-image: url('img/Image 16.png'); /* Corrected escape character */
+  background-size: cover;
+  background-position: center;
 }
 
 .nav img {
